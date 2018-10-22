@@ -1,0 +1,31 @@
+{
+  "name": "jekyll-contactform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run eslint && npm run mocha",
+    "eslint": "eslint src/. test/. --config .eslintrc.json --fix",
+    "start": "node src/",
+    "dev": "nodemon src/",
+    "mocha": "NODE_ENV=production mocha test/ --recursive --exit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "config": "^2.0.1",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "nodemailer": "^4.6.8",
+    "nodemailer-promise": "^2.0.0",
+    "request": "^2.88.0",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
