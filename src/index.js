@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-const logger = require('winston');
+const config = require('config');
 const app = require('./app');
 
-const port = app.get('port');
+const port = config.get('port');
 const server = app.listen(port);
 
-process.on('unhandledRejection', (reason, p) => logger.error('Unhandled Rejection at: Promise ', p, reason));
+process.on('unhandledRejection', (reason, p) => console.error('Unhandled Rejection at: Promise ', p, reason));
 
-server.on('listening', () => logger.info('Feathers application started on http://%s:%d', app.get('host'), port));
+server.on('listening', () => console.info('application started on port:', port));
