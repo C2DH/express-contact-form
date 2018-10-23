@@ -1,7 +1,6 @@
-const config = require('config').get('nodemailer');
 const mailer = require('nodemailer-promise');
+const debug = require('debug')('express-contact-form/mailer');
 
-const sendMail = mailer.config(config);
 // {
 //   host: 'smtp.ethereal.email',
 //   port: 587,
@@ -11,18 +10,21 @@ const sendMail = mailer.config(config);
 //       pass: account.pass // generated ethereal password
 //   }
 // });
-
+//
 module.exports = function ({
-  from = config.from,
+  from = null,
   subject = 'test',
-  to = config.to,
+  to = null,
   text = 'Hello world?',
   html = '<b>Hello world?</b>',
+  config = {},
 } = {}) {
   if (!from || !to) {
     throw new Error('configuration failure');
   }
-  console.log(config, subject, text, to, html, from);
+  debug('sendMail configuration', config);
+  const sendMail = mailer.config(config);
+  debug('sendMail to', to);
   return sendMail({
     from,
     subject,
