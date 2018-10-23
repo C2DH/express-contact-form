@@ -100,7 +100,7 @@ app.post('/ecf', [
     });
 
     // mail!
-    const results = await Promise.all([
+    await Promise.all([
       mailer({
         from: req.body.email,
         to: mailerConfig[site].to,
@@ -120,13 +120,13 @@ app.post('/ecf', [
       return res.status(500).json({
         message: 'mail error',
       });
-    }).then(promiseResponses =>{
+    }).then((promiseResponses) => {
       console.log(promiseResponses);
       if (redirect[req.body.use].Success) {
         return res.redirect(redirect[req.body.use].Success);
       }
       return res.status(200).json({
-        ... b,
+        ...b,
         message: 'ok',
       });
     });

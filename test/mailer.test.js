@@ -1,9 +1,9 @@
 const assert = require('assert');
-const mailer = require('../src/mailer');
 const config = require('config');
-const templates = require('../src/templates');
+const mailer = require('../src/mailer');
+
 const mailerConfig = config.get('nodemailer').default;
-console.log(mailerConfig)
+console.log(mailerConfig);
 /*
   NODE_ENV=production DEBUG=express-con* mocha test/mailer.test.js
 */
@@ -17,7 +17,6 @@ describe('\'mailer\' test configuration', function () {
   });
 
   it('send a test email according to configuration', async () => {
-
     const m = await mailer({
       from: mailerConfig.from,
       to: mailerConfig.to,
