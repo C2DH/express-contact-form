@@ -8,7 +8,8 @@
     "eslint": "eslint src/. test/. --config .eslintrc.json --fix",
     "start": "node src/",
     "dev": "nodemon src/",
-    "mocha": "NODE_ENV=production mocha test/ --recursive --exit"
+    "test-prod": "NODE_ENV=production npm run test",
+    "mocha": "mocha test/ --recursive --exit"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "nodemailer": "^4.6.8",
     "nodemailer-promise": "^2.0.0",
     "request": "^2.88.0",
+    "request-promise": "^4.2.2",
     "winston": "^3.1.0"
   },
   "devDependencies": {
