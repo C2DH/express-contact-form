@@ -1,21 +1,33 @@
 {
   "port": 3000,
   "recaptcha": {
-    "secret": "xyz",
-    "url": "https://www.google.com/recaptcha/api/siteverify"
+    "url": "https://www.google.com/recaptcha/api/siteverify",
+    "default":{
+      "secret": "xyz"
+    }
   },
   "nodemailer": {
-    "to": "test.to@email",
-    "from": "test.from@email",
-    "templates": "./templates",
-    "host": "smtp.ethereal.email",
-    "port": 587,
-    "secure": false
+    "default":{
+      "to": "test.to@email",
+      "from": "test.from@email",
+      "templates": "./templates",
+      "host": "smtp.ethereal.email",
+      "port": 587,
+      "secure": false
+    }
   },
   "redirect": {
-    "BadRequest": null,
-    "Success": null,
-    "GenericError": null,
-    "InvalidCaptcha": null
-  }
+    "default": {
+      "BadRequest": null,
+      "Success": null,
+      "GenericError": null,
+      "InvalidCaptcha": null
+    }
+  },
+  "sites":[
+    "default"
+  ],
+  "languages": [
+    "en", "fr", "de"
+  ]
 }
