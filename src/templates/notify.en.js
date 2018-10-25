@@ -18,7 +18,7 @@ const html = ({
 } = {}) => `
   <p>Dear Staff Member,</p>
 
-  <p>${fullname} <${email}> left a message on the contact form:</p>
+  <p><b>${fullname}</b> (${email}) left a message on the contact form:</p>
 
   <blockquote>${contents}</blockquote>
   `;
