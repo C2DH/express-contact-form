@@ -26,8 +26,7 @@ app.get('/ecf', (req, res) => {
 });
 app.post('/ecf', [
   // username must be an email
-  check('email').isEmail()
-    .normalizeEmail(),
+  check('email').isEmail(),
   // password must be at least 5 chars long
   check('contents').isLength({
     min: 1,
