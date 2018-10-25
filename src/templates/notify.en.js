@@ -1,5 +1,5 @@
 const text = ({
-  content = '',
+  contents = '',
   email = '',
   fullname = '',
 } = {}) => `
@@ -7,12 +7,12 @@ const text = ({
 
   ${fullname} <${email}> left this message on the contact form:
 
-  > ${content}
+  > ${contents}
   `;
 
 
 const html = ({
-  content = '',
+  contents = '',
   email = '',
   fullname = '',
 } = {}) => `
@@ -20,7 +20,7 @@ const html = ({
 
   <p>${fullname} <${email}> left a message on the contact form:</p>
 
-  <blockquote>${content}</blockquote>
+  <blockquote>${contents}</blockquote>
   `;
 
 module.exports = {

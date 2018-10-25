@@ -32,12 +32,12 @@ app.post('/ecf', [
   check('contents').isLength({
     min: 1,
     max: 500,
-  }),
+  }).escape(),
 
   check('fullname').isLength({
     min: 1,
     max: 500,
-  }),
+  }).escape(),
 
   check('use').isIn(config.get('sites')),
   check('lang').isIn(config.get('languages')),
@@ -105,10 +105,14 @@ app.post('/ecf', [
         from: req.body.email,
         to: mailerConfig[site].to,
         text: tmp.text({
-          content: req.body.content,
+          contents: req.body.contents,
+          email: req.body.email,
+          fullname: req.body.fullname,
         }),
         html: tmp.html({
-          content: req.body.content,
+          contents: req.body.contents,
+          email: req.body.email,
+          fullname: req.body.fullname,
         }),
         config: mailerConfig[site],
       }),
