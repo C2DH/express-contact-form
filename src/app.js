@@ -110,7 +110,7 @@ app.post('/ecf', [
         html: tmp.html({
           content: req.body.content,
         }),
-        config: mailerConfig,
+        config: mailerConfig[site],
       }),
     ]).catch((mailerError) => {
       debug('error', mailerError);
